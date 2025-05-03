@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Area Price Predictor</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 10px;
+            background: linear-gradient(115deg, #3674B5 10%, #A1E3F9 90%);
+        }
+
+        .container {
+            max-width: 800px;
+            background: #D1F8EF;
+            width: 100%;
+            padding: 25px 40px 10px 40px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .container .text {
+            text-align: center;
+            font-size: 41px;
+            font-weight: 600;
+            background: -webkit-linear-gradient(right, #3674B5, #578FCA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container form {
+            padding: 30px 0 0 0;
+        }
+
+        .container form .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-row .input-data {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .input-data label {
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: block;
+            color: #3674B5;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 30px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #3674B5;
+        }
+
+        .radio-group input[type="radio"] {
+            transform: scale(1.5);
+        }
+
+        .input-data input[type="number"] {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            font-size: 17px;
+            border: 2px solid #578FCA;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .submit-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .submit-btn input {
+            width: 50%;
+            height: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            background: linear-gradient(115deg, #3674B5, #578FCA);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn input:hover {
+            background: linear-gradient(115deg, #578FCA, #3674B5);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-top: 20px;
+            color: #3674B5;
+        }
+
+        @media (max-width: 700px) {
+            .container .text {
+                font-size: 30px;
+            }
+
+            .submit-btn input {
+                width: 80%;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text">Location Area Price Predictor</div>
+        <form method="POST">
+            <div class="form-row">
+                <div class="input-data">
+                    <label>Select Location:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="loc" value="1" checked />Karjat</label>
+                        <label><input type="radio" name="loc" value="2" />Khandala</label>
+                        <label><input type="radio" name="loc" value="3" />Lonavala</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <label>Enter Area (in sq. units):</label>
+                    <input type="number" step="any" name="area" placeholder="Enter Area" required min="0.0" />
+                </div>
+            </div>
+            <div class="submit-btn">
+                <input type="submit" value="Predict" />
+            </div>
+        </form>
+        <h2>{{ msg }}</h2>
+    </div>
+</body>
+
+</html>
